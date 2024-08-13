@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096728850131",
+    "project_id": "joseline-jimenez-9b",
+    "storage_bucket": "joseline-jimenez-9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096728850131:android:64ac07489e16b9509dee26",
+        "android_client_info": {
+          "package_name": "com.example.fire_jos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnW1QXTVKuPZJyfy6nrRZIS98HOS0IdYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
