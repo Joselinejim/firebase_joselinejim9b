@@ -1,5 +1,6 @@
 
 import 'package:fire_jos/paginas/firebase_add_nombre.dart';
+import 'package:fire_jos/paginas/firebase_edit.dart';
 import 'package:fire_jos/paginas/firebase_inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,7 +8,7 @@ import 'firebase_options.dart';
 
 void main () async{
   WidgetsFlutterBinding.ensureInitialized();
-  //Sin este codigo, no se puede depurara la aplicación
+  //Sin este codigo, no se puede depurarar la aplicación
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
@@ -20,11 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      title: 'Firebase App',
       //Sistema de rutas
       routes: {
         '/': (context) => const Home(), 
         '/add': (context) => const AddNombre(),
+        '/edit': (context) => const EditNombre(),
       },
     );
   }

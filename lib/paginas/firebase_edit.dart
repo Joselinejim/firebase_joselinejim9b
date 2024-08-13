@@ -1,25 +1,29 @@
 import 'package:fire_jos/firebase_metodos.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const AddNombre());
+void main() => runApp(const EditNombre());
 
-class AddNombre extends StatefulWidget {
-  const AddNombre({super.key});
+class EditNombre extends StatefulWidget {
+  const EditNombre({super.key});
 
   @override
-  State<AddNombre> createState() => _AddNombreState();
+  State<EditNombre> createState() => _EditNombreState();
 }
 
-class _AddNombreState extends State<AddNombre> {
+class _EditNombreState extends State<EditNombre> {
   //Controlador para guardar el valor de la columna
   TextEditingController nombreControlador = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
+
+    final Map argumentos = ModalRoute.of(context)!.settings.arguments as Map;
+    nombreControlador.text = argumentos['nombre'];
+
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Añadir Nombre'),
+          title: const Text('Editar Nombre'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),
@@ -29,16 +33,16 @@ class _AddNombreState extends State<AddNombre> {
                 //Mando llamar al controlador
                 controller: nombreControlador,
                 decoration: const InputDecoration(
-                  hintText: 'Ingresa un nombre',
+                  hintText: 'Modifica el nombre',
                 ),
               ),
               ElevatedButton(
                 onPressed: () async{
-                await leerNombre(nombreControlador.text).then((_) {
-                  Navigator.pop(context);
-                });
-                //print(nombreControlador.text); //Corroborar que el controalador funciona en la consola de depuración
-              }, child: const Text("Guardar"))
+                  //print(argumentos['id']);
+                  await actualizarNombre(argumentos['uid'], nombreControlador.text).then((_){
+                    Navigator.pop(context);
+                  });
+              }, child: const Text("Actualizar"))
             ],
           ),
         )
